@@ -3,8 +3,11 @@
 # secrets
 *secrets*
 !secrets.yaml
-*key*
-*token*
+!01-secrets.yaml
+
+*keys*
+!keycloack
+
 *creds*
 *credentials*
 
