@@ -100,3 +100,7 @@ If your cluster has [RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)
 [Set up Airflow on Kubernetes](https://dev.to/bhavaniravi/how-to-set-up-airflow-on-kubernetes-24i8)
 
 [Airflow Helm](https://hub.kubeapps.com/charts/bitnami/airflow)
+
+[A journey to Airflow on Kubernetes](https://towardsdatascience.com/a-journey-to-airflow-on-kubernetes-472df467f556)
+
+[How did I deploy Airflow on Kubernetes?](https://towardsdatascience.com/how-did-i-deploy-airflow-on-kubernetes-ca3a2e91db04)
