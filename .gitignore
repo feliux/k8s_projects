@@ -1,0 +1,15 @@
+# files
+
+# secrets
+*secrets*
+!secrets.yaml
+!01-secrets.yaml
+
+*keys*
+!keycloack
+
+*creds*
+*credentials*
+
+# folders
+.*env
