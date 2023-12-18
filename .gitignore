@@ -1,0 +1,12 @@
+# files
+
+# secrets
+*secrets*
+!secrets.yaml
+*key*
+*token*
+*creds*
+*credentials*
+
+# folders
+.*env
