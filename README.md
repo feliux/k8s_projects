@@ -20,7 +20,19 @@ This repository contains some example services deployments for Kubernetes.
 
 [Go to provider README file](./aws/README.md)
 
+> HardWay
+
+[kubeadm init](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)
+
 > SECURITY
+
+[Certificate Management with kubeadm](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/)
+
+[PKI certificates and requirements](https://kubernetes.io/docs/setup/best-practices/certificates/)
+
+[Update apiserver certificates for HA k8s cluster](https://serverfault.com/questions/1030307/update-apiserver-certificates-for-ha-k8s-cluster)
+
+[Invalid x509 certificate for kubernetes master](https://stackoverflow.com/questions/46360361/invalid-x509-certificate-for-kubernetes-master)
 
 [kube-goat](https://github.com/ksoclabs/kube-goat)
 
