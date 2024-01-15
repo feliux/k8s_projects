@@ -1,0 +1,22 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-restart-pod
+  namespace: <YOUR NAMESPACE>
+spec:
+  concurrencyPolicy: Forbid
+  schedule: '30 * * * *'
+  jobTemplate:
+    spec:
+      backoffLimit: 2 # this has very low chance of failing, as all this does is prompt kubernetes to schedule new replica set for the deployment
+      activeDeadlineSeconds: 600 # timeout, makes most sense with "waiting for rollout" variant specified below
+      template:
+        spec:
+          serviceAccountName: cron-sa
+          restartPolicy: Never
+          containers:
+            - name: k8s-cron
+              image: feliux/scibds-k8s-cron:<version>-golang
+              command: ["/app"]
+              args: ["-namespace=foo", "-deployment-name=bar", "-change-cause=baz"]
