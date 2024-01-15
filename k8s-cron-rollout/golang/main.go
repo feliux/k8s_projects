@@ -24,14 +24,14 @@ var (
 )
 
 func init() {
-	flag.StringVar(&auth, "auth", "", "Specify auth method based on RBAC (inside a pod) or kubeconfig (outside the cluster). Possible values are inside or outside")
+	flag.StringVar(&auth, "auth", "", "Specify auth method based on RBAC (inside a pod) or kubeconfig (outside the cluster). Possible values are inside or outside.")
 	flag.StringVar(&namespace, "namespace", "", "K8s namespace.")
 	flag.StringVar(&deploymentName, "deployment-name", "", "Deployment name to rollout.")
-	flag.StringVar(&changeCause, "change-cause", "cronjob execution", "Change cause for annotation kubernetes.io/change-cause")
+	flag.StringVar(&changeCause, "change-cause", "cronjob execution", "Change cause for annotation kubernetes.io/change-cause.")
 	if home := homedir.HomeDir(); home != "" {
-		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) Absolute path to the kubeconfig file")
+		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) Absolute path to the kubeconfig file.")
 	} else {
-		kubeconfig = flag.String("kubeconfig", "", "Absolute path to the kubeconfig file")
+		kubeconfig = flag.String("kubeconfig", "", "Absolute path to the kubeconfig file.")
 	}
 	flag.Parse()
 }
