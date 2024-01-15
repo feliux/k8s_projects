@@ -6,7 +6,7 @@ metadata:
   namespace: <YOUR NAMESPACE>
 spec:
   concurrencyPolicy: Forbid
-  schedule: '30 * * * *'
+  schedule: '*/2 * * * *' # every 2 min
   jobTemplate:
     spec:
       backoffLimit: 2 # this has very low chance of failing, as all this does is prompt kubernetes to schedule new replica set for the deployment
@@ -17,6 +17,9 @@ spec:
           restartPolicy: Never
           containers:
             - name: k8s-cron
-              image: feliux/scibds-k8s-cron:<version>-golang
-              command: ["/app"]
-              args: ["-auth=inside", "-namespace=foo", "-deployment-name=bar", "-change-cause=baz"]
+              image: feliux/k8s-cron:<version>-golang
+              command: ["/app"] # golang
+              args: ["-auth=inside", "-namespace=foo", "-deployment-name=bar", "-change-cause=baz"] # golang
+              #image: feliux/k8s-cron:<version>-python
+              #command: ["python"] # python
+              #args: ["main.py", "-a", "inside", "-ns", "foo", "-deploy", "bar", "-cc", "baz"] # python

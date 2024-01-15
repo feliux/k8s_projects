@@ -1,6 +1,6 @@
 # K8s cronjob
 
-Custom image for rollout a k8s deployment
+Custom distroless images for rollout a k8s deployments.
 
 ## How to use this image
 

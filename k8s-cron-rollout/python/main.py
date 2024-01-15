@@ -34,7 +34,7 @@ def restart_deployment(v1_apps, namespace: str, deployment: str, change_cause: s
     }
     try:
         v1_apps.patch_namespaced_deployment(deployment, namespace, body, pretty="true")
-        print(f"Rollout for deployment {deployment} succeeded.")
+        print(f"Rollout for deployment {deployment} succeeded.\n")
     except ApiException as e:
         print("Exception when calling AppsV1Api -> read_namespaced_deployment_status: %s\n" % e)
 

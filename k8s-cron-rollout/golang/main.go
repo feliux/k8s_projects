@@ -78,5 +78,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Rollout for deployment %s succeeded. Check running: kubectl rollout history deployment/<deployment-name>", deploymentName)
+	fmt.Printf("Rollout for deployment %s succeeded. Check running: kubectl rollout history deployment/<deployment-name>\n", deploymentName)
 }

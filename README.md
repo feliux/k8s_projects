@@ -7,6 +7,7 @@ This repository contains some example services deployments for Kubernetes.
 - **aws**. Deploy an EKS cluster and some extra features.
 - **gcp**. Deploy an GKE cluster and some extra features.
 - **golang-js-api**. Minimal webpage using Golang API backend server and a JavaScript frontend.
+- **k8s-cron-rollout**. Custom distroless images for rollout a k8s deployments.
 - **pinponfel**. Personal app.
 - **wordpress**.
 
