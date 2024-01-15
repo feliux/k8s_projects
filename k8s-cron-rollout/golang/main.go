@@ -24,7 +24,7 @@ var (
 )
 
 func init() {
-	flag.StringVar(&auth, "auth", "", "Specify auth method based on RBAC (inside a pod) or kubeconfig (outside the cluster).")
+	flag.StringVar(&auth, "auth", "", "Specify auth method based on RBAC (inside a pod) or kubeconfig (outside the cluster). Possible values are inside or outside")
 	flag.StringVar(&namespace, "namespace", "", "K8s namespace.")
 	flag.StringVar(&deploymentName, "deployment-name", "", "Deployment name to rollout.")
 	flag.StringVar(&changeCause, "change-cause", "cronjob execution", "Change cause for annotation kubernetes.io/change-cause")
@@ -39,7 +39,7 @@ func init() {
 func Auth() (*rest.Config, error) {
 	switch auth {
 	case "inside":
-		// creates the in-cluster config
+		// create the in-cluster config
 		config, err := rest.InClusterConfig()
 		return config, err
 	case "outside":
@@ -47,7 +47,7 @@ func Auth() (*rest.Config, error) {
 		config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 		return config, err
 	default:
-		panic("You have to include auth flag.")
+		panic("You have to include auth flag. Possible values are inside or outside.")
 	}
 }
 
@@ -78,5 +78,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Rollout execution success. Check running: kubectl rollout history deployment/<deployment-name>")
+	fmt.Printf("Rollout for deployment %s succeeded. Check running: kubectl rollout history deployment/<deployment-name>", deploymentName)
 }

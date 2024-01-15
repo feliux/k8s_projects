@@ -19,4 +19,4 @@ spec:
             - name: k8s-cron
               image: feliux/scibds-k8s-cron:<version>-golang
               command: ["/app"]
-              args: ["-namespace=foo", "-deployment-name=bar", "-change-cause=baz"]
+              args: ["-auth=inside", "-namespace=foo", "-deployment-name=bar", "-change-cause=baz"]

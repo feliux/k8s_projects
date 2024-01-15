@@ -34,6 +34,7 @@ def restart_deployment(v1_apps, namespace: str, deployment: str, change_cause: s
     }
     try:
         v1_apps.patch_namespaced_deployment(deployment, namespace, body, pretty="true")
+        print(f"Rollout for deployment {deployment} succeeded.")
     except ApiException as e:
         print("Exception when calling AppsV1Api -> read_namespaced_deployment_status: %s\n" % e)
 
@@ -41,9 +42,11 @@ def restart_deployment(v1_apps, namespace: str, deployment: str, change_cause: s
 def main():
     args = parse_args()
     if args.auth == "inside":
-        config.load_incluster_config() # inside the cluster
+        # create the in-cluster config
+        config.load_incluster_config()
     elif args.auth == "outside":
-        config.load_kube_config() # outside the cluster
+        # create the out-cluster config
+        config.load_kube_config()
     v1_apps = client.AppsV1Api()
     restart_deployment(v1_apps, args.namespace, args.deployment_name, args.change_cause)
 
