@@ -2,13 +2,15 @@
 
 **Certs**
 
-```sh
-$ openssl x509 -inform der -in smartdiagnosis.txt -out smartdiagnosis-dev.crt
+```bash
+$ openssl x509 -inform der -in file.txt -out file.crt
 
-$ kubectl create configmap-cacerts -n jira --from-file=cacerts=./cacerts-nueva --dry-run=client -o yaml > configmap-cacerts.yaml
-$ kubectl create secret tls smart-diagnosis-cert --key=smartdiagnosis.key --cert=smartdiagnosis.crt -n humsapps-qa-release-1 --dry-run=client -o yaml > secret-smart-cert.yaml
+
+$ kubectl create configmap-cacerts -n <namespace> --from-file=cacerts=./cacerts-nueva --dry-run=client -o yaml > configmap-cacerts.yaml
+
+$ kubectl create secret tls <secretName> --key=file.key --cert=file.crt -n <namespace> --dry-run=client -o yaml > secret.yaml
 ```
 
-```sg
-kubeadm init phase certs all -h
+```bash
+$ kubeadm init phase certs all -h
 ```
